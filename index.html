@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Probability – Optionsberegner</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <small>OPTIONSANALYSE / BLACK–SCHOLES</small>
+            <h1>Probability</h1>
+            <p>Implicit volatilitet, forventet kursbevægelse og afkast.</p>
+        </header>
+
+        <div class="layout">
+            <section>
+                <h2>Markedsdata</h2>
+                <div id="market" class="fields"></div>
+
+                <h2>Optionspriser</h2>
+                <div id="quotes" class="fields"></div>
+
+                <h2>Beregningsmetode</h2>
+
+                <div class="fields">
+                    <label>
+                        Optionstype
+                        <select id="type">
+                            <option value="C">Call</option>
+                            <option value="P">Put</option>
+                        </select>
+                    </label>
+                </div>
+
+                <p id="error" role="status"></p>
+            </section>
+
+            <div>
+                <section>
+                    <h2>Optionsværdi</h2>
+                    <div id="valuation" class="results"></div>
+                </section>
+
+                <section>
+                    <h2>Forventet kursbevægelse</h2>
+                    <div id="movement" class="results"></div>
+
+                    <svg id="range"
+                         viewBox="0 0 340 100"
+                         role="img"
+                         aria-label="Forventede kursintervaller">
+                    </svg>
+
+                    <p class="note">
+                        Straddle-intervallet følger Excel:
+                        aktuel kurs ± (call mid + put mid).
+                        Det er ikke nødvendigvis straddlens break-even.
+                    </p>
+                </section>
+            </div>
+
+            <section class="wide">
+                <h2>Afkast</h2>
+
+                <div id="returns" class="fields"></div>
+                <div id="yield" class="results"></div>
+
+                <p class="note">
+                    Simpel annualisering som i Excel,
+                    uden kurtage, skat eller renters rente.
+                </p>
+            </section>
+        </div>
+
+        <footer>
+            Europæisk Black–Scholes-model med kontinuerligt udbytte.
+            Forventet bevægelse er et estimat, ikke en garanti.
+        </footer>
+    </main>
+</body>
+
+</html>
